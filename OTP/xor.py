@@ -1,0 +1,49 @@
+# xor_hex.py
+def xor_hex(h1, h2):
+    b1 = bytes.fromhex(h1)
+    b2 = bytes.fromhex(h2)
+
+    L = min(len(b1), len(b2))
+    return bytes([b1[i] ^ b2[i] for i in range(L)])
+
+# INPUT
+hex1 = "f06e335db3980ae45921a1b16e9538b046a3202a29d1a03bc865bf09919b880d7a972d71b9f72fbbf9a665c3db6dfc3d9a3ecdee4802eae66cd045080565fd3871151a0099131d8bcae4c480265508ca33d2ca031905bcc5a57587f4dd8172e3098e4b9989db8a44510020109ca48cced3f107b9740089fa96e5586137f28f899ae3231b6fa57caa2793cd5ea95b62cbc8afa05cae06654a46003ebf5a8057b59245fa6b907f78bc31bef560cced4eea55b97bef405ca1a570206b76f2b275c5c085cae95b14b57e4d1c0b723c0d43dbe2510b8d84e852c39025d42061abb153adc17b5d2a611b2e3f32da33ecb4d01fd7c24004c6826698e0ecbac7a4110e53475b98d7327cf935adfb918796b1fb8634d52798ffab88bd967d14a041de33f28c4c26a8467f56afe09299a4f118c4aae0ec1a42963be577efa5bef258d8d1490d47dd6058925c7f8b3931bc9a476917f4a5735fb292b4705f864f57a224c12707b00c5352c95c14010ca5a1225325b54bef1231f0fd242de0700e428ec8a48b99f169d795d8a18fbd5054b6d8409ea91055530d7cdc6e268df018856d9bca9cd867a8069a7a49fd0c88393102886010fe3a6e0d3945c48fa2ef2b6ff4a5e9abc2bdcda54721e58da9e5422480d1e6ea21d135d183fff5123bbfedc791d255c9f90714d8f912a18dc5c4079d8a"
+hex2 = "fa687a4aba9a45a55f3ab7ba3a9d23fe07e6203728cdbe308b24af13dc91ce447ed63b75b9a32ba7f8e237c4dd73f07b8432ccf0441cede662d011031833ec3c604c0518de4e5c99c5f9d3cd221c18c760c8d9085c00f2c5be7a83e5cb8160ee1fc14394d792854f14132600d8ed99c5d4a507ed710d87b187ac5e7a7fff8adb9fed291c2cb172b937929250ea4778d2ceb6ad54b20536010a0231b25e9f04f0dc50fb2fc27d7cb836a5b03d84ed52e85eeb71f4455cb7f77e2a2333e9fa78ccd6ccd6e91e53bc7152020a7b2a495f8ef04c188d84a052cf8b329d3128fcb142bd88645929795b7d372adb33eab0d305978b4a1ac6cb6884f6f1a1d2e15941550f5bd6dc3270f93ebafa8bd3d7a0f18422d53d94f0a1c1b296325dad40cf72e18f5f26fb056358abe0c087eda51edfa8faa21e0a8b3ff232efb4fafa51dad7550d4b99735f900834d93120acce436709bdaa791daf8eb87643864d5bbe28d73a53b21f4652d45b515b43f1bd2f1666b456f15a31eded713dec674a459389e999cde462ddc1c2ba8eef5f42f9975f9eb35e575e0628c66320dffa09d67a92dfd3da7cbf0b963d48fc19d470360bde671be232770a7a178580a8ab6a3be1b7eeba87f4c5ea5421ea85bcae4e34c5c7fdaf26da71d098ace0402db5fdcbded11cc4fd420cc5f207e1a7"
+hex3 = "e76e3f1eb7910ca3462ff2b92f9724f949e66f782782b42cd569ba149186815962847977a2a726b0efaa37cfdb79b579c837caef550becb52dc2591f1830ee3834464351c8565483c4b6d6c9235512c533c0d0025c08bcd3bb618df3c1c061e9418e56919ede804a1f06720595be8c8bdbe00dea730985bf87a20a713efe87d0c9e33f117ff77cb426c1d315fa5b77c3cee4a94fb301730213113aa21b8b51f8c040f16b906b6fbe2ab5b66a88ac47ea45b977f04843a5a37c37673ee4b875ddd685c8e95318b878021e0269270c4295f710598b8de01bcb8176dc2d2ce7a943addb2d57366155673039da33f3b0d71e978b4618dbc0288be5f6abdcaf5802074e50dc9b2378f03aacfcdf9ad8b1f7952f8123ddb1adddb59d7814a0558a76f9854e21a909665cbbed8184e1b20ddaebebed04008720b766e1e1eaf647c094401b19907442970871963e26e19a486402a0a77651be9ffd6f50d44514a43ec03a42a45e4152dc5b10435ff1a0290729fc56f84631f2f53838e06d4d45cd87ba90d6e273d6dbc2bb87ef494fffd8459ab25e42580728c5722edbf002912894c3d1df7ba80fce7454fa58d4752d1fde7717ed3c73437604cbc1b6a62f3de3a1bab3c6e4ceb85065a797aba6592586c9b5bd3dcb39db84abb4503ea3fdc791d953dfed0749a6"
+hex4 = "fb693851b99a0be4492bb5b520d42de307ef263627d2b669cf6bb61fdd95804923d63d61bfb426f5eee363d6de64a26ec83adde94818fba22ddf5f4d032dec7067505d5dc0565888cde2c980325912d666d3c7485c05fdd7b266c6b1dac976ad1eda4a8e9edc970317003f1a98b4d8d8d8e404fc67488fae87ac4d6730e09fc1c9ff331c64f774b42694cd04fb5136c5c5a0f958b8177507120a30bf17cc42f6c74af066de7f2aae2cb5a376caff1ee65fea6ce95944b0b2332a2176f1bf7fc1cbcac8e3550af33c5606063d30004482a45c1c8980e1178e8476d5362fabb65fab887e5c307c4767303b9e72f0b5831bdac5500cd3c17198fef1a1d2e15b5b554650df9b277ff973b1fd9196c2a7fb9c339d7092f4a1dca9836553ee5bc77efc875f34b5127819baf78f9fefb91896a8fcee1d179036b773e0a5bee151c7dd5c170e936253d85c758c233cac9a4b6603f4a56c49a8c6bb735ed35c5da323d7301ce018405ad55e515c45bfa8330127fc4df94131beff2330e82347549287a591cff56bca95d8a192aa5853e9d6128faf1a424f4f28dd6f23c2f209982884d8ddc16aaf4edb6e1bf558d2703a1e9f6b0aaa306e0e7810cb88b2b66a2eecabf4b887f5deae466ee9c4bcac5d259790e2a320d771dc98ace05d3ebfea82d2d75ddfe3420ac3f805bdc396dc0edaf28e6fc2"
+
+xor_bytes = xor_hex(hex4, hex3)
+
+
+print("XOR (hex):")
+print(xor_bytes.hex())
+
+print("\nXOR (ascii view):")
+print("".join(chr(b) if 32 <= b <= 126 else "." for b in xor_bytes))
+
+
+def crib_drag(xor_bytes, crib):
+    crib_bytes = crib.encode()
+    results = []
+
+    for i in range(1):
+        out = []
+        for j in range(len(crib_bytes)):
+            c = xor_bytes[i+j] ^ crib_bytes[j]
+            if 32 <= c <= 126:
+                out.append(chr(c))
+            else:
+                out.append(".")
+        results.append((i, "".join(out)))
+
+    return results
+
+
+cribs = [
+    "hoboken began as lenape homeland. dutch settlers arrived in the seventeenth century. later, the stevens family shaped its growth with industry and education, founding stevens institute of technology. the city became a hub for shipping and manufacturing during the nineteenth century. immigrants brought culture and resilience. music and arts flourished; frank sinatra rose from its lively streets. today, hoboken stands as a vibrant community along hudson river with "]
+
+for crib in cribs:
+    print(f"\n=== CRIB: '{crib}' ===")
+    for i, res in crib_drag(xor_bytes, crib):
+        if any(c.isalpha() for c in res):   # filter noise
+            print(f"{i:04d}: {res}")

@@ -1,2 +1,5 @@
 # project1decryptor
-Decrptors and ciphertext files for project 1
+
+Decrptors, decrypted texts, and ciphertext files for project 1
+
+Thought process explained in explanation.pdf
